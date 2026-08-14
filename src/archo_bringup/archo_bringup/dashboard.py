@@ -1,18 +1,18 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float32
+from archo_interfaces.msg import BatteryStatus
 
 class Dashboard(Node):
     def __init__(self):
         super().__init__('dashboard')
         self.subscription = self.create_subscription(
-            Float32, 'battery_level', self.battery_callback, 10)
+            BatteryStatus, 'battery_level', self.battery_callback, 10)
 
     def battery_callback(self, msg):
-        if msg.data < 20.0:
-            self.get_logger().warning(f"Low battery: {msg.data:.1f}%")
+        if msg.percentage < 20.0:
+            self.get_logger().warning(f"Low battery: {msg.percentage:.1f}%")
         else:
-            self.get_logger().info(f"Dashboard sees: {msg.data:.1f}%")
+            self.get_logger().info(f"Dashboard sees: {msg.percentage:.1f}%")
 
 
 def main(args=None):
