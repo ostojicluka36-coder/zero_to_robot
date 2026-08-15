@@ -1,0 +1,8 @@
+# archo_intefaces/action/MoveToShelf.action
+int32 shelf_number
+---
+bool success
+string final_message
+---
+float32 distance_remaining
+string status	
