@@ -6,6 +6,7 @@ from archo_interfaces.msg import BatteryStatus
 class BatteryMonitor(Node):
     def __init__(self):
         super().__init__('battery_monitor')
+        self.declare_parameter('low_battery_threshold', 20.0)
         self.publisher_ = self.create_publisher(BatteryStatus, 'battery_level', 10)
         self.timer = self.create_timer(1.0, self.publish_battery)
         self.level = 100.0

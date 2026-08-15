@@ -9,6 +9,8 @@ from archo_interfaces.action import MoveToShelf
 class MotorController(Node):
     def __init__(self):
         super().__init__('motor_controller')
+        self.declare_parameter('max_speed', 0.8)
+        self.declare_parameter('wheel_radius', 0.05)
         self.get_logger().info('Starting motors...')
         self.get_logger().info('Motors ON')
         self.encoder_ticks = 15420
@@ -60,6 +62,9 @@ class MotorController(Node):
         result.success = True
         result.final_message = f'Arrived at shelf {target}'
         return result
+
+    def get_max_speed(self):
+        return self.get_parameter('max_speed').get_parameter_value().double_value
 
 
 
