@@ -27,6 +27,7 @@ setup(
             'simple_node = archo_bringup.simple_node:main',
             'battery_monitor = archo_bringup.battery_monitor:main',
             'dashboard = archo_bringup.dashboard:main',
+            'motor_controller = archo_bringup.motor_controller:main',
         ],
     },
 )

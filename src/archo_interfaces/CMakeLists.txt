@@ -25,6 +25,8 @@ endif()
 
 rosidl_generate_interfaces(${PROJECT_NAME}
 	"msg/BatteryStatus.msg"
+	"srv/ResetEncoder.srv"
+	"srv/EmergencyStop.srv"
 )
 
 ament_export_dependencies(rosidl_default_runtime)

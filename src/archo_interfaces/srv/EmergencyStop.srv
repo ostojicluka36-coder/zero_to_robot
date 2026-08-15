@@ -1,0 +1,3 @@
+# archo_intefaces/srv/EmergencyStop.srv
+---
+bool success
